@@ -2,7 +2,7 @@ from PIL import Image
 import os
 
 # 出力ディレクトリ
-base_output_dir = r"H:\japanHD\mi.ke.sun1108+jiji"
+base_output_dir = r"H:\japanHD\kitune9900kitunesan+cake"
 
 # 切り取るJPEGファイルのディレクトリを再帰的に探索
 for root, dirs, files in os.walk(base_output_dir):

@@ -7,7 +7,7 @@ add_timeline_and_mediain.py.py
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=148
+bin_count=182
 start_bin=1
 ################################################
 import DaVinciResolveScript as dvr
@@ -17,7 +17,7 @@ import sys
 import os
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_japanxxx as config
+import config.config_uncensored_leaked as config
 
 # Resolve APIに接続
 resolve = dvr.scriptapp("Resolve")

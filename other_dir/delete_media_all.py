@@ -10,7 +10,7 @@ resolve = dvr.scriptapp("Resolve")
 project_manager = resolve.GetProjectManager()
 
 # プロジェクト「Project2」を取得
-project_name = "heyzo"
+project_name = "Uncensored_Leaked"
 project = project_manager.LoadProject(project_name)
 
 if project:

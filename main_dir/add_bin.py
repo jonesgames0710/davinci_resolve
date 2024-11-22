@@ -15,7 +15,7 @@ import config.config_uncensored_leaked as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=182
+bin_count=178
 start_bin=1
 ################################################
 # Resolve APIに接続

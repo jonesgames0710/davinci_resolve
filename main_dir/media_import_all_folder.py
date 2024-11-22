@@ -18,7 +18,7 @@ import config.config_uncensored_leaked as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=184
+bin_count=178
 start_bin=1
 #フォルダパス  フォルダ番号を除いたパス　番号は001のゼロ埋めで統一
 #folder_path="/Users/radmanesh/Desktop/davimp4/mu-"
