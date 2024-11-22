@@ -8,7 +8,7 @@ add_timeline_and_mediain.py.py
 #project_name = "erito"
 #ビンの数の範囲
 bin_count=178
-start_bin=4
+start_bin=1
 ################################################
 import DaVinciResolveScript as dvr
 import pprint
