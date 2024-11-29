@@ -9,7 +9,7 @@ import os
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_japanhd2 as config
+import config.config_uncensored_leaked as config
 
 
 
@@ -18,8 +18,8 @@ import config.config_japanhd2 as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=764
-start_bin=204
+bin_count=2
+start_bin=1
 # 出力ディレクトリ
 #base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
 #base_output_dir="H:\erito"
