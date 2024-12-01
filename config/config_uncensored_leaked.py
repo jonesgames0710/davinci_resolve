@@ -21,7 +21,7 @@ markln=2400
 #レンダリング終了位置
 markout=270
 #ファイル名の接頭辞 
-filePrefix="H:\\uncensoredleaked"
+filePrefix="uncensoredleaked"
 #ズーム設定
 zoomx=1.025 # 水平方向のズーム
 zoomy=1.025 # 垂直方向のズーム
