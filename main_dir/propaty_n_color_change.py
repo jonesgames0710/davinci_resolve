@@ -10,7 +10,7 @@ import sys
 import os
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_japanhd2 as config
+import config.config_japanxxx as config
 
 
 
@@ -18,13 +18,13 @@ import config.config_japanhd2 as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=204
-start_bin=201
+bin_count=148
+start_bin=81
 # 出力ディレクトリ
 #base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
 #base_output_dir="H:\erito"
 #pysutoguiの実行秒数
-secound_auto=0
+secound_auto=0.4
 ################################################
 
 # Resolve APIに接続
@@ -116,17 +116,35 @@ if project:
                     pyautogui.moveTo(8059,2414,duration=secound_auto)
                     pyautogui.click()
 
-                    #変形「パン」をクリック
+
+                     #変形「サイズ」をクリック
                     #480 795
+                    pyautogui.moveTo(8936,2368,duration=secound_auto)
+                    pyautogui.click()
+
+                    #「サイズ」を入力
+                    
+                    pyautogui.write(config.size)
+
+                    #変形「アスペクト」をクリック
+                    
+                    pyautogui.moveTo(9158,2379,duration=secound_auto)
+                    pyautogui.click()
+                    #「アスペクト」を入力
+                    
+                    pyautogui.write(config.aspect)
+
+                    #変形「パン」をクリック
+                    
                     pyautogui.moveTo(8929,2424,duration=secound_auto)
                     pyautogui.click()
 
                     #「座標」を入力
-                    #58.31
+                    
                     pyautogui.write(config.cpan)
 
                     #変形「ティルト」をクリック
-                    #608 794
+                   
                     pyautogui.moveTo(9158,2424,duration=secound_auto)
                     pyautogui.click()
                     #「座標」を入力
