@@ -9,7 +9,7 @@ import os
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_uncensored_leaked as config
+import config.config_japanxxx as config
 
 
 
@@ -18,7 +18,7 @@ import config.config_uncensored_leaked as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=2
+bin_count=148
 start_bin=1
 # 出力ディレクトリ
 #base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
@@ -114,7 +114,7 @@ if project:
             duration_seconds = (end_frame - start_frame) / fps
 
             # 目標ファイルサイズに収めるためのビットレート計算（kbps）
-            target_size_mb = 1900  # 目標サイズ 1.9GB (1900 MB)
+            target_size_mb = 1800  # 目標サイズ 1.9GB (1900 MB)
             bitrate_kbps = (target_size_mb * 8192) / duration_seconds  # 8 bits/byte * 1024 kb/MB
 
 
@@ -126,8 +126,8 @@ if project:
                 "FormatWidth": 1280,           # 出力解像度（幅）
                 "FormatHeight": 720,            # 出力解像度（高さ）
                 "VideoQuality": int(bitrate_kbps),  # 計算されたビットレート
-                #"MarkIn":config.markln,
-                #"MarkOut":markout_set,         
+                "MarkIn":config.markln,
+                "MarkOut":markout_set,         
             })
 
             print(f"タイムラインの開始フレーム: {start_frame}, 終了フレーム: {end_frame}")

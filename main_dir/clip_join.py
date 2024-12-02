@@ -9,13 +9,12 @@ import os
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_avidolz as config
+import config.config_japanxxx as config
 
 ########################設定#####################
-# プロジェクト名
-#project_name = "japanHD2"
+
 #ビンの数の範囲
-bin_count=186
+bin_count=148
 start_bin=1
 ################################################
 
