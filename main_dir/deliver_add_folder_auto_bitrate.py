@@ -9,26 +9,15 @@ import os
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_japanxxx as config
+import config.config_10musume_mosaic_ue as config
 
 
 
 
 ########################設定#####################
-# プロジェクト名
-#project_name = "erito"
 #ビンの数の範囲
-bin_count=148
-start_bin=1
-# 出力ディレクトリ
-#base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
-#base_output_dir="H:\erito"
-# 新規で作成するフォルダーの名前
-#new_folder_name = "RenderOutput"  # 新しいフォルダの名前
-#レンダリング開始位置
-#markln=20
-#レンダリング終了位置
-#markout=20
+bin_count=39
+start_bin=35
 ################################################
 
 # Resolve APIに接続
@@ -127,7 +116,7 @@ if project:
                 "FormatHeight": 720,            # 出力解像度（高さ）
                 "VideoQuality": int(bitrate_kbps),  # 計算されたビットレート
                 "MarkIn":config.markln,
-                "MarkOut":markout_set,         
+                #"MarkOut":markout_set,         
             })
 
             print(f"タイムラインの開始フレーム: {start_frame}, 終了フレーム: {end_frame}")
@@ -139,7 +128,7 @@ if project:
         # 全てのジョブがキューに追加されたのでレンダリング開始
         #startrem = project.StartRendering()
         #if startrem:
-            #print("レンダーが行われます。\n\n")
+           #print("レンダーが行われます。\n\n")
 
         
             

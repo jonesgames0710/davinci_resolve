@@ -11,23 +11,18 @@ import pprint
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_japanhd2 as config
+import config.config_10musume as config
 
 ########################設定#####################
-# プロジェクト名
-#project_name = "japanHD2"
+
 #ビンの数の範囲
-bin_count=764
-start_bin=704
-# 出力ディレクトリ
-#base_output_dir = "I:\japanHD-render"
-#ファイル名の接頭辞 
-#filePrefix="erito"
+bin_count=179
+start_bin=1
 #ギャラリー保存のフォーマット
 format="jpg";
 #new_folder_name = "RenderOutput"
 #保存間隔のフレーム数：5分までの値　200で6.6秒
-save_interval_frame_befor = 200  
+save_interval_frame_befor = 600  
 #保存間隔のフレーム数：5分以降の値
 save_interval_frame_after = 2200
 #フレームレート

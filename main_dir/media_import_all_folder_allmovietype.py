@@ -1,7 +1,6 @@
 '''
-media_import_all_folder.py
-作業手順2
-指定された数のビン（Bin_001からBin_100）に指定した数のフォルダ（mu_001からmu_010）からすべてのメディアファイルを取り込む
+media_import_all_folder.pyを改造
+動画ファイル形式をmp4だけでなく、'.mp4', '.mkv', '.mov', '.avi', '.wmv'にしたもの
 '''
 import os
 import DaVinciResolveScript as dvr
@@ -10,27 +9,24 @@ from datetime import datetime
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_10musume_mosaic_sita as config
-
-
+import config.config_10musume as config
 
 ########################設定#####################
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=34
-start_bin=1
+bin_count = 214
+start_bin = 1
 #フォルダパス  フォルダ番号を除いたパス　番号は001のゼロ埋めで統一
 #folder_path="/Users/radmanesh/Desktop/davimp4/mu-"
 #folder_path="O:\erito\erito\mu-"
 #動画数が3つ以上のビン番号を保存する配列の宣言
-toomany_import=[]
+toomany_import = []
 #動画数が0のビン番号を保存する配列の宣言
-zero_import=[]
+zero_import = []
 #toomany_importとzero_importを書き出すフォルダパス
 #text_path="O:\erito\erito"
 ################################################
-
 
 # Resolve APIに接続
 resolve = dvr.scriptapp("Resolve")
@@ -53,7 +49,7 @@ if project:
         sub_folders = root_folder.GetSubFolders()
 
         # Bin_001からBin_010までを処理
-        for i in range(start_bin, bin_count+1):  # 1から10までの範囲で処理
+        for i in range(start_bin, bin_count + 1):  # 1から10までの範囲で処理
             bin_name = f"Bin_{i:03d}"  # Bin_001, Bin_002,...Bin_010
             media_folder = f"{config.folder_path}{i:03d}"  # mu-001, mu-002,...mu-010
 
@@ -74,10 +70,15 @@ if project:
 
             # メディアファイルを探す
             if os.path.exists(media_folder):
-                media_files = [os.path.join(media_folder, f) for f in os.listdir(media_folder) if f.endswith(".mp4")]
+                media_files = [
+                    os.path.join(media_folder, f)
+                    for f in os.listdir(media_folder)
+                    if os.path.isfile(os.path.join(media_folder, f)) and
+                    f.lower().endswith(('.mp4', '.mkv', '.mov', '.avi', '.wmv'))  # サポートする動画拡張子を追加
+                ]
                 
-                #インポートしたファイルが３以上のビン名をtoomany_import配列に追加
-                if len(media_files)>2:
+                # インポートしたファイルが3つ以上のビン名をtoomany_import配列に追加
+                if len(media_files) > 2:
                     toomany_import.append(bin_name)
 
                 if media_files:
@@ -87,7 +88,7 @@ if project:
                     print(f"'{media_folder}' のメディアが '{bin_name}' に追加されました。\n\n")
                 else:
                     print(f"'{media_folder}' にはメディアファイルが見つかりませんでした。\n\n")
-                    #zero_importにビン名を追加
+                    # zero_importにビン名を追加
                     zero_import.append(bin_name)
             else:
                 print(f"'{media_folder}' フォルダが存在しません。\n\n")
@@ -95,25 +96,22 @@ if project:
         print("ルートフォルダを取得できませんでした。\n\n")
 else:
     print(f"'{config.project_name}' プロジェクトをロードできませんでした。\n\n")
-    
-    
+
 pprint.pprint(toomany_import)
 pprint.pprint(zero_import)
 
 # 現在の日時を取得（分まで）
 now = datetime.now().strftime('%Y-%m-%d-%H-%M')
 
-
-#toomany_impotの内容をテキストで書き出す
+# toomany_importの内容をテキストで書き出す
 # テキストファイルに書き出す
-with open(os.path.join(config.text_path,f"toomany_import_{now}.txt"), "w", encoding="utf-8") as file:
+with open(os.path.join(config.text_path, f"toomany_import_{now}.txt"), "w", encoding="utf-8") as file:
     for item in toomany_import:
         file.write(item + "\n")  # 各要素を1行ずつ書き込む
-        
-#zero_importの内容をテキストで書き出す 
-with open(os.path.join(config.text_path,f"zero_import_{now}.txt"), "w", encoding="utf-8") as file:
+
+# zero_importの内容をテキストで書き出す
+with open(os.path.join(config.text_path, f"zero_import_{now}.txt"), "w", encoding="utf-8") as file:
     for item in zero_import:
         file.write(item + "\n")  # 各要素を1行ずつ書き込む
 
 print("テキストファイルに書き出しました。")
-

@@ -10,7 +10,7 @@ import sys
 import os
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_japanxxx as config
+import config.config_10musume_mosaic_ue as config
 
 
 

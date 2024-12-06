@@ -6,8 +6,8 @@ import os
 import shutil
 
 # 動画ファイルがあるフォルダと移動先のベースフォルダ
-source_folder = r"D:\ダウンロード\10musume"
-destination_base_folder = r"D:\ダウンロード\10musume_base"
+source_folder = r"D:\ダウンロード\10musume_all\モザイク必須元動画\上Mosaic"
+destination_base_folder = r"D:\ダウンロード\10musume_all\10musume_mosaic_base_ue"
 
 # フォルダを確認し、存在しない場合は作成
 if not os.path.exists(destination_base_folder):
