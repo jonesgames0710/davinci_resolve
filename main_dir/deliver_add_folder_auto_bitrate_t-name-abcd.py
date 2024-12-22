@@ -10,10 +10,10 @@ import os
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_uncensored_leaked as config
+import config.config_bukkake_640 as config
 
 
-bin_count=178
+bin_count=29
 start_bin=1
 
 
@@ -71,10 +71,10 @@ if project:
 
             # レンダリング設定を行う
             project.SetRenderSettings({
-                "TargetDir": r"H:\uncensoredleaked",  # 出力ディレクトリ（新規フォルダ）
+                "TargetDir": config.base_output_dir,  # 出力ディレクトリ（新規フォルダ）
                 "CustomName": "ul"+timeline.GetName(),        # ファイル名をビン名に設定
-                "FormatWidth": 1280,           # 出力解像度（幅）
-                "FormatHeight": 720,            # 出力解像度（高さ）
+                "FormatWidth": 640,           # 出力解像度（幅）
+                "FormatHeight": 480,            # 出力解像度（高さ）
                 "VideoQuality": int(bitrate_kbps),  # 計算されたビットレート
                 #"MarkIn":config.markln,
                 #"MarkOut":markout_set,         

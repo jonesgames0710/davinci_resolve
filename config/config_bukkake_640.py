@@ -5,18 +5,21 @@ still_image.py
 '''
 #########################設定#####################
 # プロジェクト名
-project_name = "erito"
+project_name = "bukkake_640"
 # 出力ディレクトリ
 #base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
-base_output_dir=r"H:\erito2"
+base_output_dir=r"D:\ダウンロード\bukkake\bukkake_640"
+#フォルダパス  フォルダ番号を除いたパス　番号は001のゼロ埋めで統一
+#folder_path="/Users/radmanesh/Desktop/davimp4/mu-"
+folder_path=r"D:\ダウンロード\bukkake\ミルキーキャット\mp4_640\mu-"
 # 新規で作成するフォルダーの名前
-new_folder_name = "Rendererito2"  # 新しいフォルダの名前
+new_folder_name = "bukkake_640"  # 新しいフォルダの名前
 #レンダリング開始位置
 markln=240
 #レンダリング終了位置
 markout=20
 #ファイル名の接頭辞 
-filePrefix="erito2"
+filePrefix="bukkake_640"
 #ズーム設定
 zoomx=1.0 # 水平方向のズーム
 zoomy=1.0 # 垂直方向のズーム

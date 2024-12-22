@@ -7,10 +7,10 @@ import shutil
 import re
 
 # フォルダパスを指定
-base_path = r"H:\uncensoredleaked"
+base_path = r"D:\ダウンロード\bukkake\bukkake_640"
 
 # フォルダ名とファイル名のパターン
-folder_pattern = re.compile(r"Render_Uncensored_Leaked-(\d+)")
+folder_pattern = re.compile(r"bukkake_640-(\d+)")
 file_pattern = re.compile(r"ulTimeline_(\d+)_\w\.mp4")  # 最後のアルファベットを無視
 
 # ベースパス内のフォルダとファイルを取得

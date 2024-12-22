@@ -7,7 +7,7 @@ add_timeline_and_mediain.py.py
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=34
+bin_count=187
 start_bin=1
 ################################################
 import DaVinciResolveScript as dvr
@@ -17,7 +17,7 @@ import sys
 import os
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_10musume_mosaic_sita as config
+import config.config_avidolz2 as config
 
 # Resolve APIに接続
 resolve = dvr.scriptapp("Resolve")
@@ -80,7 +80,7 @@ if project:
                 clip_lists.append({"object": item, "name": item.GetName()})
 #########################################eの後の数字を取得してソートする関数####################################################
             # eの後の数字を取得してソートする関数
-            '''
+            
             def extract_number(clip):
                 name = clip["name"]
                 match = re.search(r'e(\d+)', name)  # 'e'に続く数字を探す
@@ -97,11 +97,11 @@ if project:
 
                 # オブジェクトのみのリストを作成
             sorted_objects = [clip["object"] for clip in clip_lists_sorted]
-            '''
+            
 #########################################eの後の数字を取得してソートする関数####################################################END
 
 #########################################.mp4 の前の数字に基づいてクリップがソートする関数####################################################
-
+            '''
             # ファイル名から.mp4の前の数字を取得してソートする関数
             def extract_number(clip):
                 name = clip["name"]
@@ -120,7 +120,7 @@ if project:
             # オブジェクトのみのリストを作成
             sorted_objects = [clip["object"] for clip in clip_lists_sorted]
 
-
+            '''
 
 #########################################.mp4 の前の数字に基づいてクリップがソートする関数####################################################
 

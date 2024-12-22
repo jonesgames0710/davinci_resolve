@@ -10,7 +10,7 @@ import pprint
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_uncensored_leaked as config
+import config.config_bukkake_640 as config
 
 ########################設定#####################
 

@@ -6,11 +6,11 @@ import shutil
 import re
 
 # ベースフォルダパス
-base_path = r"H:\uncensoredleaked"
+base_path = r"D:\ダウンロード\bukkake\bukkake_640"
 
 # フォルダ名とフォルダ番号のパターン
 source_folder_pattern = re.compile(r"Timeline_(\d+)_\w")  # 移動元フォルダ
-destination_folder_pattern = re.compile(r"Render_Uncensored_Leaked-(\d+)")  # 移動先フォルダ
+destination_folder_pattern = re.compile(r"bukkake_640-(\d+)")  # 移動先フォルダ
 
 # ベースパス内のフォルダを取得
 source_folders = []

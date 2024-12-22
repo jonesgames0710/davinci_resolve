@@ -9,13 +9,13 @@ import os
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_10musume_mosaic_sita as config
+import config.config_bukkake_640 as config
 
 ########################設定#####################
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=34
+bin_count=29
 start_bin=1
 ################################################
 # Resolve APIに接続

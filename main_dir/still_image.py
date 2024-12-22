@@ -11,13 +11,13 @@ import pprint
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_10musume as config
+import config.config_javhub as config
 
 ########################設定#####################
 
 #ビンの数の範囲
-bin_count=179
-start_bin=1
+bin_count=304
+start_bin=244
 #ギャラリー保存のフォーマット
 format="jpg";
 #new_folder_name = "RenderOutput"

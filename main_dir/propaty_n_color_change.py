@@ -10,7 +10,7 @@ import sys
 import os
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_10musume_mosaic_ue as config
+import config.config_bukkake_640 as config
 
 
 
@@ -18,8 +18,8 @@ import config.config_10musume_mosaic_ue as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=148
-start_bin=81
+bin_count=29
+start_bin=1
 # 出力ディレクトリ
 #base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
 #base_output_dir="H:\erito"
@@ -110,13 +110,13 @@ if project:
                     '''
                     ここの部分にpyautoguiでカーソル操作を自動化
                     '''
-                    
+                    '''
                     #ウィンドウの四角形をクリック
                     #50 794
                     pyautogui.moveTo(8059,2414,duration=secound_auto)
                     pyautogui.click()
 
-
+                    
                      #変形「サイズ」をクリック
                     #480 795
                     pyautogui.moveTo(8936,2368,duration=secound_auto)
@@ -133,6 +133,7 @@ if project:
                     #「アスペクト」を入力
                     
                     pyautogui.write(config.aspect)
+                    
 
                     #変形「パン」をクリック
                     
@@ -204,6 +205,7 @@ if project:
                     #「0,7」を入力
                     pyautogui.write('0.7')
                     pyautogui.press('return')
+                    '''
                     
 
                     back_edit=resolve.OpenPage('edit')
