@@ -22,13 +22,13 @@ import shutil
 
 # === 設定部分（変数） ===
 # リストを作成する検索先フォルダ
-source_folder = r"H:\javhub\UP\rurunakasotokita+aa\保留"
+source_folder = r"H:\javhub\UP\workokggfdsa+werwer\済み"
 # 検索する文字列
 search_string = ""
 # リストを使ってフォルダ名を検索するフォルダ（移動するフォルダがある場所）
 search_folder = r"H:\javhub3"
 # リストに当てはまったフォルダ名の移動先フォルダ
-destination_folder = r"H:\javhub3\rurunakasotokita+aa"
+destination_folder = r"H:\javhub3\workokggfdsa+werwer\1回目済み"
 
 # === メインロジック ===
 
