@@ -23,8 +23,8 @@ def main():
     head = ""  # 空文字("")なら全ファイル比較
 
     # ディレクトリの指定
-    base_dir = r"D:\ダウンロード\heyzo"
-    big_dir = r"K:\heyzo"
+    base_dir = r"K:\superma_fullpack"
+    big_dir = r"X:\zremen2"
     output_file = os.path.join(base_dir, "missing_files.txt")
 
     # base_dir配下のファイル取得

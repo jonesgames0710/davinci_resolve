@@ -6,7 +6,7 @@ drxファイル削除用スクリプト
 import os
 
 # スチルをエクスポートした後、drxファイルを削除
-folder_path = r"D:\ダウンロード\bukkake\bukkake_640"
+folder_path = r"D:\ダウンロード\fc2\書き出し\fc2"
 
 # os.walkを使用してすべてのサブディレクトリを再帰的に処理
 for root, dirs, files in os.walk(folder_path):

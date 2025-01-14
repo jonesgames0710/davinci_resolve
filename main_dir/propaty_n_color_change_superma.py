@@ -2,9 +2,6 @@
 指定したビンのタイムラインを取得してサイズなどのプロパティを変更する。クリップは結合しなくても変更できる。
 カラーグレーディングをpyautofuiモジュールでウィンドウを追加してエフェクトのブラーを適応させる
 作業手順5-2
-
-DRPの上下の小さいモザイク用
-
 '''
 
 import DaVinciResolveScript as dvr
@@ -13,7 +10,7 @@ import sys
 import os
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_1pondo_mosaic_jyouge as config
+import config.config_smermania as config
 
 
 
@@ -21,13 +18,13 @@ import config.config_1pondo_mosaic_jyouge as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=52
+bin_count=143
 start_bin=2
 # 出力ディレクトリ
 #base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
 #base_output_dir="H:\erito"
 #pysutoguiの実行秒数
-secound_auto=0.5
+secound_auto=0.2
 ################################################
 
 # Resolve APIに接続
@@ -94,12 +91,12 @@ if project:
 
                 for clip in clips:
                 # ズームを変更
-                    #clip.SetProperty("ZoomX", config.zoomx)  # 水平方向のズーム
-                    #clip.SetProperty("ZoomY", config.zoomy)  # 垂直方向のズーム
+                    clip.SetProperty("ZoomX", config.zoomx)  # 水平方向のズーム
+                    clip.SetProperty("ZoomY", config.zoomy)  # 垂直方向のズーム
 
                     # 位置を変更
-                    #clip.SetProperty("Pan", config.pan)  # 水平方向
-                    #clip.SetProperty("Tilt", config.tilt)   # 垂直方向
+                    clip.SetProperty("Pan", config.pan)  # 水平方向
+                    clip.SetProperty("Tilt", config.tilt)   # 垂直方向
         
                     print(f"クリップ '{clip.GetName()}' のズームと位置が変更されました。\n\n")
 
@@ -116,26 +113,27 @@ if project:
                     
                     #ウィンドウの四角形をクリック
                     #50 794
-                    pyautogui.moveTo(8059,2414,duration=secound_auto)
+                    pyautogui.moveTo(8059,2510,duration=secound_auto)
                     pyautogui.click()
 
-
+                    
                      #変形「サイズ」をクリック
                     #480 795
-                    pyautogui.moveTo(8936,2368,duration=secound_auto)
-                    pyautogui.click()
+                    #pyautogui.moveTo(8936,2368,duration=secound_auto)
+                    #pyautogui.click()
 
                     #「サイズ」を入力
                     
-                    pyautogui.write(config.size)
+                    #pyautogui.write(config.size)
 
                     #変形「アスペクト」をクリック
                     
-                    pyautogui.moveTo(9158,2379,duration=secound_auto)
-                    pyautogui.click()
+                    #pyautogui.moveTo(9158,2379,duration=secound_auto)
+                    #pyautogui.click()
                     #「アスペクト」を入力
                     
-                    pyautogui.write(config.aspect)
+                    #pyautogui.write(config.aspect)
+                    
 
                     #変形「パン」をクリック
                     
@@ -161,112 +159,92 @@ if project:
 
                     #「0」を入力
                     pyautogui.write('0')
-                    pyautogui.press('\t')
-                    pyautogui.press('\t')
-
-                    #ソフトネス　ソフト２をクリック
-                    #604 883
-                    #pyautogui.moveTo(604,883,duration=secound_auto)
-                    #pyautogui.click()
-
-                    #「0」を入力
-                    pyautogui.write('0')
-                    pyautogui.press('\t')
-                    pyautogui.press('\t')
-
-                    #ソフトネス　ソフト３をクリック
-                    #490 910
-                    #pyautogui.moveTo(490,910,duration=secound_auto)
-                    #pyautogui.click()
-
-                    #「0」を入力
-                    pyautogui.write('0')
-                    pyautogui.press('\t')
-                    pyautogui.press('\t')
-
-
-                    #ソフトネス　ソフト４をクリック
-                    #610 910
-                    #pyautogui.moveTo(610,910,duration=secound_auto)
-                    #pyautogui.click()
-
-                    #「0」を入力
-                    pyautogui.write('0')
-
-                    #エフェクトのブラー(ガウス)からノードまでドラッグ
+                   
+                    #エフェクトのグリッドからノードまでドラッグ
                     #950 180から660 260
                     pyautogui.moveTo(9447,1261,duration=secound_auto)
-                    pyautogui.dragTo(8971,1474,button='left',duration=secound_auto)
+                    pyautogui.dragTo(8689,1479,button='left',duration=secound_auto)
 
 
-                    #ブラー(ガウス)の強度をクリック
+                    #行セルをクリック
                     #1190 156
-                    pyautogui.moveTo(9888,1359,duration=secound_auto)
+                    pyautogui.moveTo(9888,1308,duration=secound_auto)
                     pyautogui.click()
 
                     #「0,7」を入力
-                    pyautogui.write('0.7')
+                    pyautogui.write('53')
                     pyautogui.press('return')
 
-
-                    
-                    #ウィンドウの円形をクリック
-                    #50 794
-                    pyautogui.moveTo(8057,2503,duration=secound_auto)
+                    #列セルをクリック
+                    #1190 156
+                    pyautogui.moveTo(9888,1360,duration=secound_auto)
                     pyautogui.click()
 
+                    #「0,7」を入力
+                    pyautogui.write('78')
+                    pyautogui.press('return')
+                    
 
-                     #変形「サイズ」をクリック
-                    #480 795
-                    pyautogui.moveTo(8939,2375,duration=secound_auto)
+                    #カラーをクリック
+                    #1190 156
+                    pyautogui.moveTo(9654,1499,duration=secound_auto)
                     pyautogui.click()
 
-                    #「サイズ」を入力
-                    
-                    pyautogui.write(config.marusize)
-
-                    #変形「アスペクト」をクリック
-                    
-                    pyautogui.moveTo(9158,2379,duration=secound_auto)
-                    pyautogui.click()
-                    #「アスペクト」を入力
-                    
-                    pyautogui.write(config.maruaspect)
-
-                    #変形「パン」をクリック
-                    
-                    pyautogui.moveTo(8929,2424,duration=secound_auto)
+                    pyautogui.moveTo(8346,1791,duration=secound_auto)
                     pyautogui.click()
 
-                    #「座標」を入力
-                    
-                    pyautogui.write(config.marupan)
-
-                    #変形「ティルト」をクリック
-                   
-                    pyautogui.moveTo(9158,2424,duration=secound_auto)
+                    pyautogui.moveTo(8717,2188,duration=secound_auto)
                     pyautogui.click()
-                    #「座標」を入力
-                    #44.50
-                    pyautogui.write(config.marutilt)
-
-                    #ソフトネス　ソフト１をクリック
-                    #490 883
-                    pyautogui.moveTo(8950,2575,duration=secound_auto)
-                    pyautogui.click()
-
-                    #「0」を入力
-                    pyautogui.write('0')
-                    #pyautogui.press('\t')
-                    #pyautogui.press('\t')
-
-
-
-
-
-
                     
 
+                    #横線の幅をクリック
+                    #1190 156
+                    pyautogui.moveTo(9888,1549,duration=secound_auto)
+                    pyautogui.click()
+
+                    #「0,7」を入力
+                    pyautogui.write('0.585')
+                    pyautogui.press('return')
+                    
+
+                    #縦線の幅をクリック
+                    #1190 156
+                    pyautogui.moveTo(9888,1588,duration=secound_auto)
+                    pyautogui.click()
+
+                    #「0,7」を入力
+                    pyautogui.write('0.482')
+                    pyautogui.press('return')
+
+                    #主線の幅をクリック
+                    #1190 156
+                    pyautogui.moveTo(9888,1628,duration=secound_auto)
+                    pyautogui.click()
+
+                    #「0,7」を入力
+                    pyautogui.write('3.120')
+                    pyautogui.press('return')
+
+                    #パンをクリック
+                    #1190 156
+                    pyautogui.moveTo(9888,1728,duration=secound_auto)
+                    pyautogui.click()
+
+                    #「0,7」を入力
+                    pyautogui.write('0.711')
+                    pyautogui.press('return')
+
+                    #回転をクリック
+                    #1190 156
+                    pyautogui.moveTo(9888,1884,duration=secound_auto)
+                    pyautogui.click()
+
+                    #「0,7」を入力
+                    pyautogui.write('-65')
+                    pyautogui.press('return')
+                    
+                    
+                    
                     back_edit=resolve.OpenPage('edit')
                     
                     if back_edit:

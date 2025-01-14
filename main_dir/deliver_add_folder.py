@@ -9,7 +9,7 @@ import os
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_sperma_add as config
+import config.config_lubed as config
 
 
 
@@ -18,7 +18,7 @@ import config.config_sperma_add as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=148
+bin_count=10
 start_bin=1
 # 出力ディレクトリ
 #base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
@@ -114,10 +114,10 @@ if project:
             # レンダリング設定を行う
             project.SetRenderSettings({
                 "TargetDir": new_folder_path,  # 出力ディレクトリ（新規フォルダ）
-                "CustomName": "H"+bin_name,        # ファイル名をビン名に設定
+                "CustomName": "spr"+bin_name,        # ファイル名をビン名に設定
                 "FormatWidth": 1280,           # 出力解像度（幅）
                 "FormatHeight": 720,            # 出力解像度（高さ）
-                "MarkIn":config.markln,
+                #"MarkIn":config.markln,
                 #"MarkOut":markout_set,         
             })
 

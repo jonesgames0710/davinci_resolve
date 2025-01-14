@@ -7,17 +7,20 @@ deliver.py
 import DaVinciResolveScript as dvr
 import os
 import sys
+import time
+import re
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_javhub as config
+import config.config_lubed as config
 
 
-
+ 
 
 ########################設定#####################
 #ビンの数の範囲
-bin_count=304
+bin_count=20
 start_bin=1
+
 ################################################
 
 # Resolve APIに接続
@@ -42,6 +45,7 @@ if project:
 
         # Bin_001からBin_010までを処理
         for i in range(start_bin, bin_count + 1):  # 1から10までの範囲で処理
+        
             bin_name = f"Bin_{i:03d}"  # Bin_001, Bin_002,...Bin_010
 
             # 該当するビンを探す
@@ -111,12 +115,12 @@ if project:
             # レンダリング設定を行う
             project.SetRenderSettings({
                 "TargetDir": new_folder_path,  # 出力ディレクトリ（新規フォルダ）
-                "CustomName": "jd"+bin_name,        # ファイル名をビン名に設定
-                "FormatWidth": 1280,           # 出力解像度（幅）
-                "FormatHeight": 720,            # 出力解像度（高さ）
+                "CustomName": "lu"+bin_name,        # ファイル名をビン名に設定
+                "FormatWidth": 1980,           # 出力解像度（幅）
+                "FormatHeight": 1080,            # 出力解像度（高さ）
                 "VideoQuality": int(bitrate_kbps),  # 計算されたビットレート
                 "MarkIn":config.markln,
-                "MarkOut":markout_set,         
+                #"MarkOut":markout_set,         
             })
 
             print(f"タイムラインの開始フレーム: {start_frame}, 終了フレーム: {end_frame}")
@@ -129,6 +133,88 @@ if project:
         #startrem = project.StartRendering()
         #if startrem:
            #print("レンダーが行われます。\n\n")
+
+            # レンダージョブのリストを取得
+
+        '''
+        実装のポイント
+        StartRendering(): 各ジョブを個別に開始します。
+        IsRenderingInProgress(): レンダリング中の状態をポーリングして監視します。
+        失敗時の処理: ステータスに「失敗」というキーワードが含まれているかを確認し、失敗した場合はStopRendering()を呼び出して次のジョブに進みます。
+        時間間隔の設定: 進行状況を監視する間隔（例: 5秒）はtime.sleep()で調整します。
+
+
+        render_jobs = project.GetRenderJobList()
+        ↓
+        ジョブ {'JobId': 'af46cdc9-f7f7-4ee7-bf40-a374d919c9fc', 'RenderJobName': 'Job 1', 'TimelineName': 'Timeline_001', 'TargetDir': 'D:\\rendertest\\render-001',
+          'IsExportVideo': True, 'IsExportAudio': True, 'FormatWidth': 1280, 'FormatHeight': 720, 'FrameRate': '29.97', 'PixelAspectRatio': 1.0, 'MarkIn': 0, 'MarkOut': 154380,
+            'AudioBitDepth': 24, 'AudioSampleRate': 48000, 'ExportAlpha': False, 'OutputFilename': 'sprmBin_001.mov', 'RenderMode': 'Single clip',
+          'PresetName': 'Custom', 'VideoFormat': 'QuickTime', 'VideoCodec': 'H.264 NVIDIA', 'AudioCodec': 'lpcm', 'EncodingProfile': 'Auto', 'MultiPassEncode': False, 'NetworkOptimization': False}
+        '''
+
+        render_jobs = project.GetRenderJobList()
+
+        #失敗リスト変数
+        errorlist=[]
+        
+
+        if not render_jobs:
+            print("レンダージョブがありません。")
+        else:
+            print(f"{len(render_jobs)} 件のレンダージョブを処理します。")
+
+            for job_list in render_jobs:
+                print(f"ジョブ {job_list} を開始します...")
+                print(f"jobidは{job_list["JobId"]}")
+                project.StartRendering(job_list["JobId"])
+
+                # レンダリングの進行状況を監視
+                while project.IsRenderingInProgress():
+                    time.sleep(5)  # 5秒待機
+                    job_status = project.GetRenderJobStatus(job_list["JobId"])
+                    print(f"ジョブステータス：{job_status}")
+                    status_info = job_status['JobStatus']
+                    print(f"ジョブ {job_list["JobId"]} のステータス: {status_info}")
+
+                    if "失敗しました" in status_info:  # ステータスに「失敗」が含まれている場合
+                        print(f"ジョブ {job_list["JobId"]} は失敗しました。次のジョブに進みます。")
+                        errorlist.append(job_list['TargetDir'])
+                        project.StopRendering()
+                        break
+
+                # レンダリングが成功した場合
+                if not project.IsRenderingInProgress():
+                    job_status = project.GetRenderJobStatus(job_list["JobId"])
+                    if job_status['JobStatus'] == "完了":
+                        print(f"ジョブ {job_list["JobId"]} が成功しました。")
+                        
+            print("すべてのジョブの処理が終了しました。")
+            
+
+            for i in errorlist:
+                print(f"エラーが出たフォルダは{i}")
+
+            # 番号部分を抽出して整数に変換する
+            error_numbers = []
+            for path in errorlist:
+                match = re.search(r'lu-(\d+)', path)  # パターン 'render-数字' を検索
+                if match:
+                    number = int(match.group(1))  # マッチした番号を整数に変換
+                    error_numbers.append(number)
+
+            print(f"番号リスト: {error_numbers}")
+
+                        # リストを書き出すファイルパス
+            list_path = r"H:\Lubed\lubed\error_numbers.txt"  # 保存先のパスに変更してください
+
+            # テキストファイルにリストを書き出す
+            try:
+                with open(list_path, 'w') as file:
+                    for number in error_numbers:
+                        file.write(f"{number}\n")  # 各番号を改行付きで書き出し
+                print(f"エラー番号のリストが '{list_path}' に書き出されました。")
+            except Exception as e:
+                print(f"リストの書き出し中にエラーが発生しました: {e}")
 
         
             

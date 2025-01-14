@@ -7,7 +7,7 @@ import os
 import shutil
 
 # 動画ファイルがあるフォルダパス
-source_folder = r"D:\ダウンロード\1pondo_all\1pondo_omni"
+source_folder = r"D:\ダウンロード\heyzo_all\heyzo"
 
 # フォルダ内のファイルを取得
 files = [f for f in os.listdir(source_folder) if f.endswith('.mp4')]

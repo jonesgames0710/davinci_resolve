@@ -9,12 +9,12 @@ import os
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_avidolz2 as config
+import config.config_smermania as config
 
 ########################設定#####################
 
 #ビンの数の範囲
-bin_count=187
+bin_count=143
 start_bin=1
 ################################################
 

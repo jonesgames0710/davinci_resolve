@@ -4,10 +4,8 @@ add_timeline_and_mediain.py.py
 ビンの数だけタイムラインを追加
 '''
 ########################設定#####################
-# プロジェクト名
-#project_name = "erito"
 #ビンの数の範囲
-bin_count=187
+bin_count=267
 start_bin=1
 ################################################
 import DaVinciResolveScript as dvr
@@ -17,7 +15,7 @@ import sys
 import os
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_avidolz2 as config
+import config.config_lubed as config
 
 # Resolve APIに接続
 resolve = dvr.scriptapp("Resolve")

@@ -10,15 +10,13 @@ from datetime import datetime
 import sys
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_bukkake_640 as config
+import config.config_lubed as config
 
 
 
 ########################設定#####################
-# プロジェクト名
-#project_name = "erito"
 #ビンの数の範囲
-bin_count=29
+bin_count=267
 start_bin=1
 #フォルダパス  フォルダ番号を除いたパス　番号は001のゼロ埋めで統一
 #folder_path="/Users/radmanesh/Desktop/davimp4/mu-"

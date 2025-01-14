@@ -10,7 +10,7 @@ import sys
 import os
 # WIN フォルダのパスを取得し、Python パスに追加
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-import config.config_bukkake_640 as config
+import config.config_lubed as config
 
 
 
@@ -18,13 +18,13 @@ import config.config_bukkake_640 as config
 # プロジェクト名
 #project_name = "erito"
 #ビンの数の範囲
-bin_count=29
+bin_count=267
 start_bin=1
 # 出力ディレクトリ
 #base_output_dir = "/Users/radmanesh/Desktop/davinci_render"  # 出力先のフォルダを指定
 #base_output_dir="H:\erito"
 #pysutoguiの実行秒数
-secound_auto=0.4
+secound_auto=0
 ################################################
 
 # Resolve APIに接続
@@ -110,7 +110,7 @@ if project:
                     '''
                     ここの部分にpyautoguiでカーソル操作を自動化
                     '''
-                    '''
+                    ''''''
                     #ウィンドウの四角形をクリック
                     #50 794
                     pyautogui.moveTo(8059,2414,duration=secound_auto)
@@ -205,7 +205,7 @@ if project:
                     #「0,7」を入力
                     pyautogui.write('0.7')
                     pyautogui.press('return')
-                    '''
+                    
                     
 
                     back_edit=resolve.OpenPage('edit')
