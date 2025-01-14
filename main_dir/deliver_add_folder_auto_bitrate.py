@@ -18,7 +18,7 @@ import config.config_lubed as config
 
 ########################設定#####################
 #ビンの数の範囲
-bin_count=20
+bin_count=3
 start_bin=1
 
 ################################################
@@ -150,7 +150,7 @@ if project:
           'IsExportVideo': True, 'IsExportAudio': True, 'FormatWidth': 1280, 'FormatHeight': 720, 'FrameRate': '29.97', 'PixelAspectRatio': 1.0, 'MarkIn': 0, 'MarkOut': 154380,
             'AudioBitDepth': 24, 'AudioSampleRate': 48000, 'ExportAlpha': False, 'OutputFilename': 'sprmBin_001.mov', 'RenderMode': 'Single clip',
           'PresetName': 'Custom', 'VideoFormat': 'QuickTime', 'VideoCodec': 'H.264 NVIDIA', 'AudioCodec': 'lpcm', 'EncodingProfile': 'Auto', 'MultiPassEncode': False, 'NetworkOptimization': False}
-        '''
+        
 
         render_jobs = project.GetRenderJobList()
 
@@ -215,6 +215,8 @@ if project:
                 print(f"エラー番号のリストが '{list_path}' に書き出されました。")
             except Exception as e:
                 print(f"リストの書き出し中にエラーが発生しました: {e}")
+
+                '''
 
         
             
